@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Envío</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="iniciosesion.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="envio.css">
+</head>
+<body>
+    <section>
+        <div class="row g-0">
+            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center ">
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            
+
+                            <table id="datatable_users" class="table table-dark">
+                                <thead style="color: #fff; text-align: center;"><tr><th>Unassigned orders</th></tr></thead>
+                                <thead>
+                                    <tr>
+                                        <th class="centered" style="text-align: center;">Without collecting</th>
+                                       
+                                        
+                                    </tr>
+                                </thead>
+
+                               
+
+
+                                <tbody id="tableBody_users"></tbody>
+                            </table><br><br>
+
+
+                            <table id="datatable_users" class="table table-dark">
+
+                                <thead style="color: #fff; ">
+                                    <tr>
+                                        <th></th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="centered">#</th>
+                                        <th class="centered">Package</th>
+                                        <th class="centered">Size</th>
+                                        <th class="centered">Weight</th>
+                                        <th class="centered">Pick up point</th>
+                                        <th class="centered">Destination</th>
+                                    </tr>
+                                </thead>
+
+                                <tr>
+                                    <td class="centered">#1</td>
+                                    <td class="centered">Camilo Rodriguez</td>
+                                    <td class="centered">Dg 52b 61f 12</td>
+                                    <td class="centered">22/05/2023</td>
+                                    <td class="centered">Not assigned</td>
+
+                                    <td class="centered"><button type="button" class="btn btn-success">Take</button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tbody id="tableBody_users"></tbody>
+                            </table>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        
+        <div class="col-lg-5"> 
+            <div class="container  ">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Submission form</h3>
+
+                        </div>
+                        <div class="card-body">
+                            <form id="envio_package">
+                                
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id='package_type' type="text" class="form-control" placeholder="Package type">
+                                </div>
+                            
+                            <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id="size" type="text" class="form-control" placeholder="Size">
+                                </div> 
+                                
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id= "weight" type="text" class="form-control" placeholder="Weight">
+                                </div>
+
+                                
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Pick up point" id="locationFrom">
+                                </div>
+                            
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Destination" id="destination" name="destination">
+                                </div>
+                            
+                
+
+                                <div class="form-group"> 
+                                    <input type="submit" class="btn btn-yo id">
+                                </div>
+                            </form>
+                        </div>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+  <!--archivos JavaScript de Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="src/package.js"></script>
+</body>
+</html>
