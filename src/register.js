@@ -7,9 +7,8 @@ form_register.addEventListener('submit', async (e) => {
     const confirm_password = form_register.elements['confirm_password'].value
     const location = form_register.elements['location'].value
     const typeOfUser = form_register.elements['list_type_of_user'].value
-    const locationInput = document.getElementById('location')
+    const locationInput = document.getElementById('location').value
     if (typeOfUser == 'user') {
-        locationInput.setAttribute('readonly')
         const payload = {
             name,
             email,
