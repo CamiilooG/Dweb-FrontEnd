@@ -1,7 +1,9 @@
 const unassignedTableBody = document.getElementById('table_body_package_unassigned')
 const assignedTableBody = document.getElementById('table_body_package_assigned')
+const deliveredTableBody = document.getElementById('tableBody_package_delivery')
 fetchTable('getallpackages', unassignedTableBody, 1)
 fetchTable(`getassignedpackages?iddelivery=${userInfo.iddelivery}`, assignedTableBody, 2)
+fetchTable(`getdeliveredpackages?iddelivery=${userInfo.iddelivery}`, deliveredTableBody)
 async function fetchTable(endpoint, table, buttonSet) {
     const res = await fetch(`http://localhost:3000/${endpoint}`,
         {
@@ -11,10 +13,9 @@ async function fetchTable(endpoint, table, buttonSet) {
             }
         })
     const data = await res?.json()
-    renderUnassignedTable(data, table, buttonSet)
-
+    renderTables(data, table, buttonSet)
 }
-function renderUnassignedTable(data, table, buttonSet) {
+function renderTables(data, table, buttonSet) {
     data.forEach((packageElement) => {
         const { locationFrom, locationTo, state, idpackage, name } = packageElement
         const row = document.createElement('tr')
@@ -117,6 +118,9 @@ function buttons(buttonSet, row, idpackage) {
             buttonDelivery.onclick = deliveryFunction;
             row.append(cellOptionButtonDelivery)
             break;
+        default:
+            break;
+
 
     }
 
