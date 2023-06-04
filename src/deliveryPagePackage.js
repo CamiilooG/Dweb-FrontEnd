@@ -1,7 +1,9 @@
 const unassignedTableBody = document.getElementById('table_body_package_unassigned')
-fetchTable()
-async function fetchTable() {
-    const res = await fetch('http://localhost:3000/getallpackages',
+const assignedTableBody = document.getElementById('table_body_package_assigned')
+fetchTable('getallpackages', unassignedTableBody, 1)
+fetchTable(`getassignedpackages?iddelivery=${userInfo.iddelivery}`, assignedTableBody, 2)
+async function fetchTable(endpoint, table, buttonSet) {
+    const res = await fetch(`http://localhost:3000/${endpoint}`,
         {
             method: 'GET',
             headers: {
@@ -9,9 +11,10 @@ async function fetchTable() {
             }
         })
     const data = await res?.json()
-    renderUnassignedTable(data)
+    renderUnassignedTable(data, table, buttonSet)
+
 }
-function renderUnassignedTable(data) {
+function renderUnassignedTable(data, table, buttonSet) {
     data.forEach((packageElement) => {
         const { locationFrom, locationTo, state, idpackage, name } = packageElement
         const row = document.createElement('tr')
@@ -36,29 +39,85 @@ function renderUnassignedTable(data) {
         cellState.innerText = state
         row.append(cellState)
 
-        const cellOptions = document.createElement('td')
-        cellOptions.innerHTML = `
-        <td class="centered">
-            <button type="button" class="btn btn-danger">Cancel</button>
-        </td>`
-        row.append(cellOptions)
-
-        const cellOptions2 = document.createElement('td')
-        const deliveryFunction = () => {
-            alert(`Entregado ${idpackage}`)
-        }
-        cellOptions2.innerHTML = `
-        <td class="centered">
-            <button type="button" class="btn btn-success" >Delivered</button>
-        </td>`
-
-        const button = cellOptions2.querySelector('button');
-        button.onclick = deliveryFunction;
-        row.append(cellOptions2)
-
-
-        unassignedTableBody.append(row)
+        buttons(buttonSet, row, idpackage)
+        table.append(row)
     })
+}
 
+function cleanTable(table) {
+    table.innerHTML = ''
+}
+function buttons(buttonSet, row, idpackage) {
+    switch (buttonSet) {
+        case 1:
+            const cellOptions2 = document.createElement('td')
+            const takeFunction = async () => {
+                const payload = {
+                    iddelivery: userInfo.iddelivery,
+                    idpackage: idpackage
+                }
+                const res = await fetch('http://127.0.0.1:3000/takepackage', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                const data = await res.json()
+                alert(data?.message)
+                cleanTable(unassignedTableBody)
+                fetchTable('getallpackages', unassignedTableBody, 1)
+                cleanTable(assignedTableBody)
+                fetchTable(`getassignedpackages?iddelivery=${userInfo.iddelivery}`, assignedTableBody, 2)
+            }
+            cellOptions2.innerHTML = `
+         <td class="centered">
+             <button type="button" class="btn btn-success">take</button>
+         </td>
+         `
+
+            const button = cellOptions2.querySelector('button');
+            button.onclick = takeFunction;
+            row.append(cellOptions2)
+            break;
+        case 2:
+            const cellOptions = document.createElement('td')
+            cellOptions.innerHTML = `
+            <td class="centered">
+                <button type="button" class="btn btn-danger">reject</button>
+            </td>
+            `
+            row.append(cellOptions)
+
+            const cellOptionButtonDelivery = document.createElement('td')
+            const deliveryFunction = async () => {
+                const payload = {
+                    iddelivery: userInfo.iddelivery,
+                    idpackage: idpackage
+                }
+                const res = await fetch('http://127.0.0.1:3000/deliverypackage', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                const data = await res.json()
+                alert(data?.message)
+                cleanTable(assignedTableBody)
+                fetchTable(`getassignedpackages?iddelivery=${userInfo.iddelivery}`, assignedTableBody, 2)
+            }
+            cellOptionButtonDelivery.innerHTML = `
+         <td class="centered">
+             <button type="button" class="btn btn-success">Delivery</button>
+         </td>
+         `
+
+            const buttonDelivery = cellOptionButtonDelivery.querySelector('button');
+            buttonDelivery.onclick = deliveryFunction;
+            row.append(cellOptionButtonDelivery)
+            break;
+
+    }
 
 }
