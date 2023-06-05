@@ -3,7 +3,7 @@ const assignedTableBody = document.getElementById('table_body_package_assigned')
 const deliveredTableBody = document.getElementById('tableBody_package_delivery')
 fetchTable('getallpackages', unassignedTableBody, 1)
 fetchTable(`getassignedpackages?iddelivery=${userInfo.iddelivery}`, assignedTableBody, 2)
-fetchTable(`getdeliveredpackages?iddelivery=${userInfo.iddelivery}`, deliveredTableBody)
+
 async function fetchTable(endpoint, table, buttonSet) {
     const res = await fetch(`http://localhost:3000/${endpoint}`,
         {

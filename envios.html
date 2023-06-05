@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="iniciosesion.css">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="envio.css">
+  <script src="/src/verifyLogin.js"></script>
 </head>
 <body>
     <section>
@@ -17,25 +18,6 @@
                 <div class="container my-4">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            
-
-                            <table id="datatable_users" class="table table-dark">
-                                <thead style="color: #fff; text-align: center;"><tr><th>Unassigned orders</th></tr></thead>
-                                <thead>
-                                    <tr>
-                                        <th class="centered" style="text-align: center;">Without collecting</th>
-                                       
-                                        
-                                    </tr>
-                                </thead>
-
-                               
-
-
-                                <tbody id="tableBody_users"></tbody>
-                            </table><br><br>
-
-
                             <table id="datatable_users" class="table table-dark">
 
                                 <thead style="color: #fff; ">
@@ -48,28 +30,21 @@
                                 <thead>
                                     <tr>
                                         <th class="centered">#</th>
-                                        <th class="centered">Package</th>
-                                        <th class="centered">Size</th>
-                                        <th class="centered">Weight</th>
-                                        <th class="centered">Pick up point</th>
-                                        <th class="centered">Destination</th>
+                                        <th class="centered">Name</th>
+                                        <th class="centered">location From</th>
+                                        <th class="centered">location to</th>
+                                        <th class="centered">Status</th>
+                                        
                                     </tr>
                                 </thead>
 
                                 <tr>
-                                    <td class="centered">#1</td>
-                                    <td class="centered">Camilo Rodriguez</td>
-                                    <td class="centered">Dg 52b 61f 12</td>
-                                    <td class="centered">22/05/2023</td>
-                                    <td class="centered">Not assigned</td>
-
-                                    <td class="centered"><button type="button" class="btn btn-success">Take</button>
-                                    </td>
+                                    
 
                                 </tr>
 
 
-                                <tbody id="tableBody_users"></tbody>
+                                <tbody id="table_body_package_user"></tbody>
                             </table>
 
 
