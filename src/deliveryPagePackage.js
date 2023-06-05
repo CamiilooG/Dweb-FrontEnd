@@ -74,7 +74,7 @@ function buttons(buttonSet, row, idpackage) {
             cellOptions2.innerHTML = `
          <td class="centered">
              <button type="button" class="btn btn-success">take</button>
-         </td>
+         </td> 
          `
 
             const button = cellOptions2.querySelector('button');

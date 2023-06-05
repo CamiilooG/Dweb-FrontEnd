@@ -29,7 +29,6 @@ form_register.addEventListener('submit', async (e) => {
         alert(data?.message)
         window.location.href = '/index.html'
     } else {
-        locationInput.setAttribute('readonly', 'readonly');
         const payload = {
             name,
             email,
