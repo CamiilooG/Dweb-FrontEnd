@@ -18,7 +18,7 @@ form_register.addEventListener('submit', async (e) => {
 
         if (!(name && email && password && confirm_password && location)) return alert('Campos incompletos')
         if (password != confirm_password) return alert('las contraseñas deben ser iguales')
-        const res = await fetch('http://127.0.0.1:3000/registeruser', {
+        const res = await fetch('http://4.246.177.149:3001/api/registeruser', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ form_register.addEventListener('submit', async (e) => {
         }
         if (!(name && email && password && confirm_password && location)) return alert('Campos incompletos')
         if (password != confirm_password) return alert('las contraseñas deben ser iguales')
-        const res = await fetch('http://127.0.0.1:3000/registerdelivery', {
+        const res = await fetch('http://4.246.177.149:3001/api/registerdelivery', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

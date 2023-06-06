@@ -57,7 +57,7 @@ function buttons(buttonSet, row, idpackage) {
                     iddelivery: userInfo.iddelivery,
                     idpackage: idpackage
                 }
-                const res = await fetch('http://127.0.0.1:3000/takepackage', {
+                const res = await fetch('http://4.246.177.149:3001/api/takepackage', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ function buttons(buttonSet, row, idpackage) {
                     iddelivery: userInfo.iddelivery,
                     idpackage: idpackage
                 }
-                const res = await fetch('http://127.0.0.1:3000/deliverypackage', {
+                const res = await fetch('http://4.246.177.149:3001/api/deliverypackage', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
