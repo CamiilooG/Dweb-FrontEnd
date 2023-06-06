@@ -17,7 +17,7 @@ formEnvioUser.addEventListener('submit', async (e) =>{
        iduser: userInfo.iduser
     }
     
-    const res = await fetch('http://4.246.177.149:3001/api/registerpackage', {
+    const res = await fetch('http://4.246.177.149/api/registerpackage', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

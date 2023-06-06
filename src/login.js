@@ -9,7 +9,7 @@ form_login.addEventListener("submit", async (e) => {
             username,
             password
         }
-        const res = await fetch('http://4.246.177.149:3001/api/login', {
+        const res = await fetch('http://4.246.177.149/api/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ form_login.addEventListener("submit", async (e) => {
             username,
             password
         }
-        const res = await fetch('http://4.246.177.149:3001/api/logindelivery', {
+        const res = await fetch('http://4.246.177.149/api/logindelivery', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ form_login.addEventListener("submit", async (e) => {
             username,
             password
         }
-        const res = await fetch('http://4.246.177.149:3001/api/loginadmin', {
+        const res = await fetch('http://4.246.177.149/api/loginadmin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
